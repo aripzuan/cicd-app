@@ -34,12 +34,13 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: Build Failed
-          body: The recent build has failed. 
+          body: 
+            The recent build has failed. 
 
-          - Repository: ${{ github.repository }}
-          - Workflow: ${{ github.workflow }}
-          - PR Link: ${{ github.event.pull_request.html_url }}
+            - Repository: ${{ github.repository }}
+            - Workflow: ${{ github.workflow }}
+            - PR Link: ${{ github.event.pull_request.html_url }}
 
-          Please check the details in the GitHub Actions tab.
+            Please check the details in the GitHub Actions tab.
           to: arridz03@gmail.com
           from: CI Bot <ci-bot@example.com>
