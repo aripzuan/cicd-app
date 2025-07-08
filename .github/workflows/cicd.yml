@@ -25,20 +25,23 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Send email notification if build fail
+      - name: Send email notification if build fails
         if: failure()
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
+          server_address: smtp.example.com
           server_port: 587
+          secure: true
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: GitHub Actions - Build Failure
-        body: |
-          The recent build has failed.
+          subject: Build Failed - ${{ github.repository }}
+          body: |
+            ❌ The recent build has failed.
 
-          - Repository: ${{github.repository}}
-          - Workflow ${{github.workflow}}
-          - PR Link: ${{github.event.pull_request.html_url}}
-        to: daibenangelosanchez@gmail.com
-        from: CI Bot <ci-bot@example.com>
+            🔗 PR: ${{ github.event.pull_request.html_url }}
+            📦 Repo: ${{ github.repository }}
+            🔁 Workflow: ${{ github.workflow }}
+
+            Check the GitHub Actions tab for full logs.
+          to: arridz03@gmail.com
+          from: CI Bot <ci-bot@example.com>
