@@ -10,7 +10,7 @@ test("App form submission", async () => {
   const submitButton = screen.getByTestId("submitButton");
 
   // Simulate user typing an email
-  await userEvent.type(emailInput, 'sigmaschool@gmail.com');
+  await userEvent.type(emailInput, 'ariff@gmail.com');
 
   expect(submitButton.disabled).toBe(false);
 });
