@@ -40,5 +40,5 @@ jobs:
           - Repository: ${{github.repository}}
           - Workflow ${{github.workflow}}
           - PR Link: ${{github.event.pull_request.html_url}}
-        to: daibenangelosanchez@gmail.com
+        to: arridz03@gmail.com
         from: CI Bot <ci-bot@example.com>
